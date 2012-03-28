@@ -12,6 +12,7 @@
 <style type='text/css'>
 body { 
     font-family: Helvetica, Arial; 
+    padding-top: 40px;
 }
 
 .icon {
@@ -26,6 +27,11 @@ body {
 
 header {
     padding: 10px;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 ul, li { 
@@ -38,11 +44,12 @@ ul, li {
     display: block;
     border-left: 5px solid #4D4D4D;
     text-decoration: none;
+    background: #fff;
 }
 
 .list li:after { 
     content: '.'; 
-    display: block; 
+    display: none; 
     visibility: hidden; 
     height: 0; 
     clear: both; 
@@ -76,35 +83,67 @@ a .description {
     font-size: 11px;
 }
 
-a:hover { background: #6D6D6D; color: white; box-shadow: inset 0 1px #6D6D6D; }
+a:hover { background: #6D6D6D !important; color: white; box-shadow: inset 0 1px #6D6D6D; }
 a:hover .size { background: #4D4D4D; }
 a:hover .description, a:hover .title h3, a:hover .fork, a:hover .watch { color: #FFFFFF !important; }
 a:hover .watch .icon { background-position: -20px -25px; }
 a:hover .fork .icon { background-position: -80px -25px; }
 
 .red { border-left-color: #CA5030 !important; }
-a.red:hover { background: #D0765F; color: #FFFFFF !important; box-shadow: inset 0 1px #D0765F; }
+a.red:hover { background: #D0765F !important; color: #FFFFFF !important; box-shadow: inset 0 1px #D0765F; }
 a.red:hover .size { background: #CA5030 !important; }
 
 .pink { border-left-color: #D96DCA !important; }
-a.pink:hover { background: #DB8CD1; color: #FFFFFF !important; box-shadow: inset 0 1px #DB8CD1; }
+a.pink:hover { background: #DB8CD1 !important; color: #FFFFFF !important; box-shadow: inset 0 1px #DB8CD1; }
 a.pink:hover .size { background: #D96DCA !important; }
 
 .purple { border-left-color: #9A7CD3 !important; }
-a.purple:hover { background: #A990D6; color: #FFFFFF !important; box-shadow: inset 0 1px #A990D6; }
+a.purple:hover { background: #A990D6 !important; color: #FFFFFF !important; box-shadow: inset 0 1px #A990D6; }
 a.purple:hover .size { background: #9A7CD3 !important; }
 
 .green { border-left-color: #7BA249 !important; }
-a.green:hover { background: #91B06A; color: #FFFFFF !important; box-shadow: inset 0 1px #91B06A; }
+a.green:hover { background: #91B06A !important; color: #FFFFFF !important; box-shadow: inset 0 1px #91B06A; }
 a.green:hover .size { background: #7BA249 !important; }
 
 .blue { border-left-color: #538ECA !important; }
-a.blue:hover { background: #76A2D0; color: #FFFFFF !important; box-shadow: inset 0 1px #76A2D0; }
+a.blue:hover { background: #76A2D0 !important; color: #FFFFFF !important; box-shadow: inset 0 1px #76A2D0; }
 a.blue:hover .size { background: #538ECA !important; }
 
 .orange { border-left-color: #D68B2A !important; }
-a.orange:hover { background: #D89F54; color: #FFFFFF !important; box-shadow: inset 0 1px #D89F54; }
+a.orange:hover { background: #D89F54 !important; color: #FFFFFF !important; box-shadow: inset 0 1px #D89F54; }
 a.orange:hover .size { background: #D68B2A !important; }
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+    body {
+        background: #353B48;
+    }
+
+    header {
+        background: white;
+    }
+
+    header .inner, .list {
+        width: 768px;
+        margin: 0 auto;
+    }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+    body {
+        background: #353B48;
+    }
+
+    header {
+        background: white;
+    }
+
+    header .inner, .list {
+        width: 768px;
+        margin: 0 auto;
+    }
+}
 </style>
 
 <script type='text/javascript'>//<![CDATA[ 
@@ -143,7 +182,9 @@ $(window).load(function(){
 </script>
 
 <header>
-    MiniJS
+    <div class='inner'>
+        MiniJS
+    </div>
 </header>
 <ul class='list'></ul>
 </body>
