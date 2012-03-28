@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>MiniJS - A better MicroJS</title>
+    <title>MiniJS - A better looking MicroJS</title>
     <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
     <script src="http://microjs.com/data-min.js"></script>
     <script src="https://raw.github.com/evilstreak/markdown-js/master/lib/markdown.js"></script>
@@ -34,6 +34,15 @@ header {
     z-index: 1;
     width: 100%;
     box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+header a {
+    color: #000;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: #323232;
 }
 
 header .need {
@@ -250,7 +259,7 @@ $(window).load(function(){
 
 <header>
     <div class='inner'>
-        MiniJS
+        <a href="http://nijikokun.github.com/MiniJS/" alt='MiniJS'>MiniJS</a>
         
         <div class="need">
             I need &hellip; 
