@@ -2,322 +2,97 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!-- Title :)~ -->
     <title>MiniJS - A better looking MicroJS</title>
-    <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
-    <script src="http://microjs.com/data-min.js"></script>
-    <script src="https://raw.github.com/evilstreak/markdown-js/master/lib/markdown.js"></script>
-    <script src="https://raw.github.com/Nijikokun/Templator/master/lib/parsers/moustache.js"></script>
-    <script src="https://raw.github.com/Nijikokun/Templator/master/Templator.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://fiddle.jshell.net/css/normalize.css">
-    
+    <!-- Java(scripts) - Mmmm Coffeeee.... -->
+    <script type='text/javascript' src='js/jquery-1.7.1.min.js'></script>
+    <script type='text/javascript' src="js/markdown.min.js"></script>
+    <script type='text/javascript' src="js/moustache.min.js"></script>
+    <script type='text/javascript' src="js/Templator.min.js"></script>
+    <!-- Stylesheets, Fresh and linen scented -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/mini.min.css">
+    <!-- Favvvvvulous -->
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-<style type='text/css'>
-body { 
-    background: #353B48;
-    font-family: Helvetica, Arial; 
-    padding-top: 40px;
-    -webkit-font-smoothing: antialiased;
-}
-
-strong {
-    font-weight: bold;
-    font-size: 13px;
-}
-
-.icon {
-    position: relative;
-    top: -1px;
-    float: left;
-    margin-left: -4px;
-    width: 18px;
-    height: 22px;
-    background: url('https://a248.e.akamai.net/assets.github.com/images/modules/buttons/mini_button_icons.png') 0 0 no-repeat;
-}
-
-header {
-    background: white;
-    padding: 12px;
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    width: 100%;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-
-header a {
-    color: #000;
-    text-decoration: none;
-}
-
-header a:hover {
-    color: #323232;
-}
-
-header .need {
-    float: right;
-    margin: 0 10px;
-    margin-top: -1px;
-}
-
-header .need select {
-    padding: 3px 5px;
-    border: 1px solid #E5E5E5;
-    display: inline-block;
-    margin: 0 5px;
-}
-
-ul, li { 
-    margin: 0; padding: 0; list-style: none; 
-}
-
-.list li a {
-    padding: 10px 5px;
-    box-shadow: inset 0 1px #E5E5E5;
-    display: block;
-    border-left: 5px solid #4D4D4D;
-    text-decoration: none;
-    background: #fff;
-}
-
-.list li:last-child a {
-    border-radius: 0 0 3px 3px;
-}
-
-.list li:after { 
-    content: '.'; 
-    display: none; 
-    visibility: hidden; 
-    height: 0; 
-    clear: both; 
-}
-
-.list li a .size {
-    float: right; 
-    display: inline-block;
-    font-size: 11px;
-    font-weight: bold;
-    color: white;
-    background: #CCCCCC;
-    border-radius: 3px;
-    padding: 3px;
-}
-
-.list li a .fork { float: right; margin: 0 10px;  color: #555555; font-size: 12px; line-height: 20.5px; }
-.list li a .watch { float: right; color: #555555; font-size: 12px; line-height: 20.5px;  }
-.list li a .watch .icon { background-position: -20px 0; }
-.list li a .fork .icon { background-position: -80px 0; }
-
-.list li a .title h3 {
-    font-size: 14px;
-    font-weight: bold;
-    color: #323232;
-}
-
-.list li a .description {
-    color: #aaaaaa;
-    margin: 5px 5px 0 5px;
-    font-size: 11px;
-}
-
-.list li a:hover { background: #6D6D6D !important; color: white; box-shadow: inset 0 1px #6D6D6D; }
-.list li a:hover .size { background: #4D4D4D; }
-.list li a:hover .description, a:hover .title h3, a:hover .fork, a:hover .watch { color: #FFFFFF !important; }
-.list li a:hover .watch .icon { background-position: -20px -25px; }
-.list li a:hover .fork .icon { background-position: -80px -25px; }
-
-.list li .red { border-left-color: #CA5030 !important; }
-.list li a.red:hover { background: #D0765F !important; color: #FFFFFF !important; box-shadow: inset 0 1px #D0765F; }
-.list li a.red:hover .size { background: #CA5030 !important; }
-
-.list li .pink { border-left-color: #D96DCA !important; }
-.list li a.pink:hover { background: #DB8CD1 !important; color: #FFFFFF !important; box-shadow: inset 0 1px #DB8CD1; }
-.list li a.pink:hover .size { background: #D96DCA !important; }
-
-.list li .purple { border-left-color: #9A7CD3 !important; }
-.list li a.purple:hover { background: #A990D6 !important; color: #FFFFFF !important; box-shadow: inset 0 1px #A990D6; }
-.list li a.purple:hover .size { background: #9A7CD3 !important; }
-
-.list li .green { border-left-color: #7BA249 !important; }
-.list li a.green:hover { background: #91B06A !important; color: #FFFFFF !important; box-shadow: inset 0 1px #91B06A; }
-.list li a.green:hover .size { background: #7BA249 !important; }
-
-.list li .blue { border-left-color: #538ECA !important; }
-.list li a.blue:hover { background: #76A2D0 !important; color: #FFFFFF !important; box-shadow: inset 0 1px #76A2D0; }
-.list li a.blue:hover .size { background: #538ECA !important; }
-
-.list li .orange { border-left-color: #D68B2A !important; }
-.list li a.orange:hover { background: #D89F54 !important; color: #FFFFFF !important; box-shadow: inset 0 1px #D89F54; }
-.list li a.orange:hover .size { background: #D68B2A !important; }
-
-footer {
-    font-size: 11px;
-    padding: 10px;
-    color: #fff;
-}
-
-footer a {
-    color: #62666A;
-    text-decoration: none;
-    margin: 0 5px;
-}
-
-footer a:hover {
-    color: #fff;
-    background: none !important;
-}
-
-footer .right {
-    float: right;
-}
-
-.clear {
-    clear: both;
-}
-
-/* Desktops and laptops ----------- */
-@media only screen and (min-width : 1224px) {
-    header .inner, .list, footer {
-        width: 768px;
-        margin: 0 auto;
-    }
-}
-
-/* Large screens ----------- */
-@media only screen and (min-width : 1824px) {
-    header .inner, .list, footer {
-        width: 768px;
-        margin: 0 auto;
-    }
-}
-</style>
-
-<script type='text/javascript'>//<![CDATA[ 
-$(window).load(function(){
-    function contains(obj, a) {
-        var i = a.length;
-        while (i--) {
-           if (a[i] === obj) {
-               return true;
-           }
-        }
-        return false;
-    }
-    
-    var colors = 'red,pink,purple,green,blue,orange'.split(',');
-    var hash = location.href.split('#');
-    
-    function _ (id) { 
-        return document.getElementById(id); 
-    }
-    
-    function find (tag) {
-        if(!tag) return MicroJS;
-        var results=[];
-        for(var i in MicroJS) {
-            if(!MicroJS.hasOwnProperty(i)) continue;
-            if(contains(tag, MicroJS[i].tags)) {
-                results.push(MicroJS[i]);
-            }
-        }
-        return results;
-    }
-
-    function render (data) {
-        $('.list').empty();
-        for(var i in data) {
-            if(!data.hasOwnProperty(i)) continue;
-            var item = data[i];
-            item.color = colors[Math.round(Math.random()*colors.length-1)];
-            item.github = item.ghwatchers ? true : false;
-            $('.list').append(Mustache.to_html($('.item').text(), item));
-        }
-    }
-    
-    function select(tag){
-        var options = _('needs').options, i=options.length;
-        while(i--) if(options[i].value==tag) _('needs').selectedIndex = i;
-    }
-
-    _('needs').onchange = function(){
-        var value = _('needs').options[_('needs').selectedIndex].value;
-        render(find(value));
-        location.href=location.href.replace(/(#.*$)|($)/,'#' + value);
-    }
-
-    render(hash.length ? (select(hash[1]), find(hash[1])) : MicroJS);
-});//]]> 
-</script>
+    <!-- Data -->
+    <script src="http://microjs.com/data-min.js"></script>
+    <script type='text/javascript' src="js/mini.min.js"></script>
 </head>
 <body>
 <script class='item' type='text/html'>
-    <li>
-        <a class="{{color}}" href='{{url}}'>
-            <div class="size">{{size}}</div>
+  <li data-name="{{name}}">
+    <a class="{{color}}" href='{{url}}'>
+      <div class="size">{{size}}</div>
 {{#github}}
-                    <span class='fork'><span class='icon'></span>{{ghforks}}</span> 
-                    <span class='watch'><span class='icon'></span>{{ghwatchers}}</span> 
+      <span class='fork'><span class='icon'></span>{{ghforks}}</span> 
+      <span class='watch'><span class='icon'></span>{{ghwatchers}}</span> 
+      <span class='twitter'><span class='icon'></span>{{tweets}}</span>
 {{/github}}
-            <div class="title">
-                <h3>{{name}}</h3>
-            </div>
-            <div class='description'>{{description}}</div>
-        </a>
-    </li>
+      <div class="title">
+        <h3>{{name}}</h3>
+      </div>
+      <div class='description'>{{description}}</div>
+    </a>
+  </li>
 </script>
 
 <header>
-    <div class='inner'>
-        <a href="http://nijikokun.github.com/MiniJS/" alt='MiniJS'>Mini<strong>JS</strong></a>
-        
-        <div class="need">
-            I need &hellip; 
-            <select id="needs">
-                <option></option>
-                <option value="base">a base framework.</option>
-                <option value="dom">a DOM utility.</option>
-                <option value="templating">templating.</option>
-                <option value="animation">CSS animation.</option>
-                <option value="jsanimation">JavaScript animation.</option>
-                <option value="css">a CSS selector engine.</option>
-                <option value="data">data manipulation.</option>
-                <option value="class">a Class system.</option>
-                <option value="functional">functional programming.</option>
-                <option value="loader">a JavaScript loader.</option>
-                <option value="json">JSON.</option>
-                <option value="ajax">AJAX.</option>
-                <option value="testing">to test stuff (e.g. unit testing).</option>
-                <option value="games">to write a game.</option>
-                <option value="canvas">to do CANVAS/2D graphics!</option>
-                <option value="color">to convert colors.</option>
-                <option value="list">to create searchable & sortable lists.</option>
-                <option value="spa">single page apps.</option>
-                <option value="storage">persistent storage.</option>
-                <option value="mvc">client-side MVC.</option>
-                <option value="feature">feature/browser detection.</option>
-                <option value="events">events!</option>
-                <option value="webkit">WebKit-specific libraries.</option>
-                <option value="mobile">mobile-specific libraries.</option>
-                <option value="responsive">libraries for responsive designs.</option>
-                <option value="polyfill">polyfills.</option>
-                <option value="analytics">analytics.</option>
-                <option value="hyphenation">hyphenation.</option>
-                <option value="async">asynchronous programming</option>
-                <option value="compose">to compose my own framework!</option>
-            </select>
-        </div>
+  <div class='inner'>
+    <a href="http://nijikokun.github.com/MiniJS/" alt='MiniJS'>Mini<strong>JS</strong></a>
+
+    <div class="find">
+      <input placeholder="type to search..." id="finder" />
     </div>
+
+    <div class="need">
+      I need &hellip; 
+      <select id="needs">
+        <option></option>
+        <option value="base">a base framework.</option>
+        <option value="dom">a DOM utility.</option>
+        <option value="templating">templating.</option>
+        <option value="animation">CSS animation.</option>
+        <option value="jsanimation">JavaScript animation.</option>
+        <option value="css">a CSS selector engine.</option>
+        <option value="data">data manipulation.</option>
+        <option value="class">a Class system.</option>
+        <option value="functional">functional programming.</option>
+        <option value="loader">a JavaScript loader.</option>
+        <option value="json">JSON.</option>
+        <option value="ajax">AJAX.</option>
+        <option value="testing">to test stuff (e.g. unit testing).</option>
+        <option value="games">to write a game.</option>
+        <option value="canvas">to do CANVAS/2D graphics!</option>
+        <option value="color">to convert colors.</option>
+        <option value="list">to create searchable & sortable lists.</option>
+        <option value="spa">single page apps.</option>
+        <option value="storage">persistent storage.</option>
+        <option value="mvc">client-side MVC.</option>
+        <option value="feature">feature/browser detection.</option>
+        <option value="events">events!</option>
+        <option value="webkit">WebKit-specific libraries.</option>
+        <option value="mobile">mobile-specific libraries.</option>
+        <option value="responsive">libraries for responsive designs.</option>
+        <option value="polyfill">polyfills.</option>
+        <option value="analytics">analytics.</option>
+        <option value="hyphenation">hyphenation.</option>
+        <option value="async">asynchronous programming</option>
+        <option value="compose">to compose my own framework!</option>
+      </select>
+    </div>
+  </div>
 </header>
 <ul class='list'></ul>
 <footer>
-    Copyright 2012 Nijiko Yonskai 
-    <a href="http://twitter.com/nijikokun" alt='Twitter'>@nijikokun</a>
-    
-    <div class='right'>
-        <a href="http://microjs.com" alt='The Original'>MicroJS</a>
-        <a href="https://github.com/nijikokun/MiniJS/" alt='Github'>Fork This</a>
-    </div>
-    
-    <div class='clear'></div>
+  Copyright 2012 Nijiko Yonskai 
+  <a href="http://twitter.com/nijikokun" alt='Twitter'>@nijikokun</a>
+  
+  <div class='right'>
+    <a href="http://microjs.com" alt='The Original'>MicroJS</a>
+    <a href="https://github.com/nijikokun/MiniJS/" alt='Github'>Fork This</a>
+  </div>
+  
+  <div class='clear'></div>
 </footer>
 </body>
 </html>
