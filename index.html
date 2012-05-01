@@ -16,6 +16,7 @@ body {
     background: #353B48;
     font-family: Helvetica, Arial; 
     padding-top: 40px;
+    -webkit-font-smoothing: antialiased;
 }
 
 .icon {
@@ -30,7 +31,7 @@ body {
 
 header {
     background: white;
-    padding: 10px;
+    padding: 12px;
     position: fixed;
     top: 0;
     z-index: 1;
@@ -50,7 +51,7 @@ header a:hover {
 header .need {
     float: right;
     margin: 0 10px;
-    margin-top: -6px;
+    margin-top: -1px;
 }
 
 header .need select {
@@ -96,8 +97,8 @@ ul, li {
     padding: 3px;
 }
 
-.list li a .fork { float: right; margin: 0 10px;  color: #555555; }
-.list li a .watch { float: right; color: #555555; }
+.list li a .fork { float: right; margin: 0 10px;  color: #555555; font-size: 12px; line-height: 20.5px; }
+.list li a .watch { float: right; color: #555555; font-size: 12px; line-height: 20.5px;  }
 .list li a .watch .icon { background-position: -20px 0; }
 .list li a .fork .icon { background-position: -80px 0; }
 
