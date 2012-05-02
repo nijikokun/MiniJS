@@ -100,29 +100,23 @@ ul, li {
     background: #CCCCCC;
     border-radius: 3px;
     padding: 3px;
+    margin-top: 1px;
+}
+
+.list li a > span {
+  float: right;
+  color: #CCCCCC;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20.5px;
 }
 
 .list li a .fork {
-  float: right;
   margin: 0 10px;
-  color: #555555;
-  font-size: 12px;
-  line-height: 20.5px;
-}
-
-.list li a .watch {
-  float: right;
-  color: #555555;
-  font-size: 12px;
-  line-height: 20.5px;
 }
 
 .list li a .twitter {
-  float: right;
   margin: 0 10px;
-  color: #555555;
-  font-size: 12px;
-  line-height: 20.5px;
 }
 
 .list li a .watch .icon {
@@ -135,6 +129,7 @@ ul, li {
 
 .list li a .twitter .icon {
   background: url('../images/twitter.png') 0 center no-repeat;
+  margin-right: 2px;
 }
 
 .list li a .title h3 {
