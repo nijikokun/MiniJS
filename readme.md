@@ -3,4 +3,4 @@ MiniJS
 
 A beautiful MicroJS site.
 
-View it here: http://nijikokun.github.com/MiniJS/
+View it here: http://minijs.net
